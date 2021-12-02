@@ -80,12 +80,10 @@ func partTwo(data []movement) int {
 			continue
 		}
 		if k.direction == "down" {
-			// depth = depth + k.amount
 			aim = aim + k.amount
 			continue
 		}
 		if k.direction == "up" {
-			// depth = depth - k.amount
 			aim = aim - k.amount
 			continue
 		}
