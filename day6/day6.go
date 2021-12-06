@@ -12,7 +12,8 @@ import (
 )
 
 var (
-	fish []int
+	fish     []int
+	cacheMap map[int]int
 )
 
 func main() {
@@ -44,6 +45,8 @@ func partOne() int {
 }
 
 func partTwo(data []int) int {
+	cacheMap = make(map[int]int)
+
 	var total int
 	for i, f := range data {
 		log.Debug().Int("fish", i).Msg("started fish")
@@ -56,6 +59,9 @@ func partTwo(data []int) int {
 }
 
 func simfish(f, days int) int {
+	if val, ok := cacheMap[f]; ok {
+		return val
+	}
 	var simfish []int
 	simfish = append(simfish, f)
 	for day := 0; day < days; day++ {
@@ -69,6 +75,7 @@ func simfish(f, days int) int {
 
 		}
 	}
+	cacheMap[f] = len(simfish)
 	return len(simfish)
 }
 
