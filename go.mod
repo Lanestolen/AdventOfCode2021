@@ -1,4 +1,4 @@
-module /github.com/Lanestolen/AdventOfCode2021
+module github.com/Lanestolen/AdventOfCode2021
 
 go 1.17
 
